@@ -85,9 +85,13 @@ chmod +x scripts/deploy_frontend.sh
 ```
 
  This script:
+ 
 	Uploads index.html, styles.css, and app.js to the website bucket
+	
 	Clears outdated files
+	
 	Confirms deployment success
+	
 	Prints the public website URL
 	
 The website becomes publicly reachable via the bucket website endpoint.
@@ -151,7 +155,7 @@ Design-level alerting recommendations:
 
 - Final polishing & presentation
 
-#Final Notes
+# Final Notes
 
 - This project fulfills the MSIT3470 Cloud Computing final project requirements, demonstrating:
 
