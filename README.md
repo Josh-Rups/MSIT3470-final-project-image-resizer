@@ -84,84 +84,85 @@ chmod +x scripts/deploy_frontend.sh
 ./scripts/deploy_frontend.sh
 ```
 
-This script:
+ This script:
 	Uploads index.html, styles.css, and app.js to the website bucket
 	Clears outdated files
 	Confirms deployment success
 	Prints the public website URL
+	
 The website becomes publicly reachable via the bucket website endpoint.
 
 
-#Monitoring & SLO Summary
+# Monitoring & SLO Summary
 
 Service Level Objective: 99% of resize requests complete within 2 seconds.
 
 Metrics observed via CloudWatch:
 
-	Lambda Duration
+- Lambda Duration
 
-	Lambda Errors
+- Lambda Errors
 
-	API Gateway 5XX responses
+- API Gateway 5XX responses
 
 Design-level alerting recommendations:
 
-Alert if Lambda errors exceed 5% over 5 minutes
+- Alert if Lambda errors exceed 5% over 5 minutes
 
-Alert if API Gateway 5XX spikes
+- Alert if API Gateway 5XX spikes
 
-Track p95 latency for SLO compliance
+- Track p95 latency for SLO compliance
 
 # AI Assistance Disclosure
 
-ChatGPT was used strictly for:
+- ChatGPT was used strictly for:
 
-Debugging support
+- Debugging support
 
-Documentation drafting
+- Documentation drafting
 
-Improving clarity 
+- Improving clarity 
 
-All code and functional decisions were validated and finalized by the team.
+- All code and functional decisions were validated and finalized by the team.
 
 # Team Responsibilities
 
 ## Josh (Backend & Infrastructure)
 
-Lambda function design & implementation
+- Lambda function design & implementation
 
-Terraform IaC (buckets, API Gateway, permissions)
+- Terraform IaC (buckets, API Gateway, permissions)
 
-Build scripts
+- Build scripts
 
-Backend testing + debugging
+- Backend testing + debugging
 
-Architecture & monitoring write-up
+- Architecture & monitoring write-up
 
 ## Adnan (Frontend & Documentation)
 
-UI/UX design
+- UI/UX design
 
-HTML/CSS/JS implementation
+- HTML/CSS/JS implementation
 
-Handling uploads & UI resizing previews
+- Handling uploads & UI resizing previews
 
-Writing Documentation
+- Writing Documentation
 
-Final polishing & presentation
+- Final polishing & presentation
 
 #Final Notes
 
-This project fulfills the MSIT3470 Cloud Computing final project requirements, demonstrating:
+- This project fulfills the MSIT3470 Cloud Computing final project requirements, demonstrating:
 
-A functional serverless application
+- A functional serverless application
 
-Proper IAM permissions and least privilege
+- Proper IAM permissions and least privilege
 
-Infrastructure-as-Code with Terraform
+- Infrastructure-as-Code with Terraform
 
-Static site hosting
+- Static site hosting
 
-Cloud-based image processing
+- Cloud-based image processing
 
-Clear architecture and monitoring strategy
+- Monitoring strategy
