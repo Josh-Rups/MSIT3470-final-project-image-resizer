@@ -121,7 +121,7 @@ Design-level alerting recommendations:
 
 # AI Assistance Disclosure
 
-- ChatGPT was used strictly for:
+ChatGPT was used strictly for:
 
 - Debugging support
 
