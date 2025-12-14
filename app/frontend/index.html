@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Serverless Image Resizing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dark">
+<div id="progress-bar"></div>
+<div id="toast-container"></div>
+
+<div class="page">
+    <header class="header">
+        <div class="title-block">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span>MSIT3470 - Final Project ( AWS Lambda · API Gateway · S3 ) </span>
+            </div>
+            <div class="title">Serverless Image Resizing App</div>
+            <div class="subtitle">
+                Upload an image, choose a thumbnail size, and get a presigned URL to a resized copy stored in S3.
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="theme-picker">
+                <span>Accent</span>
+                <div class="theme-dot" data-accent="blue"></div>
+                <div class="theme-dot" data-accent="green"></div>
+                <div class="theme-dot" data-accent="purple"></div>
+                <div class="theme-dot" data-accent="orange"></div>
+            </div>
+            <div class="mode-toggle">
+                <span>Mode</span>
+                <button type="button" class="mode-pill active" data-mode="dark">Dark</button>
+                <button type="button" class="mode-pill" data-mode="light">Light</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="layout">
+        <!-- Left: Controls -->
+        <div class="card card-left">
+            <div class="card-left-top">
+                <h3>
+                    <span class="step-pill">1</span>
+                    Upload & Configure
+                </h3>
+
+                <div class="field">
+                    <div class="field-label">Image source</div>
+                    <div id="dropZone" class="drop-zone">
+                        <div class="drop-main">Drop an image file here</div>
+                        <div class="drop-sub">or use the file picker below</div>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="fileInput" accept="image/*">
+                            <div class="file-fake">
+                                <div class="file-fake-icon"></div>
+                                <span>Browse...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="fileName" class="file-name">No file selected yet</div>
+                </div>
+
+                <div class="field">
+                    <div class="field-label">Thumbnail size</div>
+                    <div id="sizeChips" class="chip-group">
+                        <button type="button" class="chip active" data-size="small">Small (100×100)</button>
+                        <button type="button" class="chip" data-size="medium">Medium (300×300)</button>
+                        <button type="button" class="chip" data-size="large">Large (600×600)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-left-bottom">
+                <button id="uploadBtn" class="btn-primary">
+                    <span id="btnIcon"></span>
+                    <span id="btnText">Upload & Resize</span>
+                </button>
+
+                <div id="status" class="status info"></div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Images this session:</span>
+                        <span class="stat-value" id="statImages">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Last size:</span>
+                        <span class="stat-value" id="statLastSize">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Last status:</span>
+                        <span class="stat-value" id="statLastStatus">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Latest + History -->
+        <div class="card">
+            <h3>
+                <span class="step-pill">2</span>
+                Result & Session History
+            </h3>
+
+            <div id="result">
+                <div class="status info">No thumbnail generated yet.</div>
+            </div>
+
+            <div class="history-caption">
+                History (this page load) – resized thumbnails fetched via presigned URLs from S3.
+            </div>
+            <div id="history"></div>
+        </div>
+    </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
