@@ -20,7 +20,7 @@ The frontend UI is hosted as a static website in S3, deployed automatically usin
 
 - CloudWatch (logs and basic monitoring)
 
-## Apllication and Tooling
+## Application and Tooling
 - Language: Python 3.12(Pillow for image processing)
 
 - Frontend: Static HTML, CSS, and JavaScript
