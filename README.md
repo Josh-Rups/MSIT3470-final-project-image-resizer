@@ -9,9 +9,9 @@ The frontend sends the image to an API Gateway endpoint. AWS Lambda resizes the 
 The frontend UI is hosted as a static website in S3, deployed automatically using a script.
 
 
-## Tech Stack
+# Tech Stack
 
-# AWS Services
+## AWS Services
 - Amazon S3 (private buckets for resized images; static hosting for frontend)
 
 - AWS Lambda (Python-based image resizer)
@@ -20,7 +20,7 @@ The frontend UI is hosted as a static website in S3, deployed automatically usin
 
 - CloudWatch (logs and basic monitoring)
 
-# Apllication and Tooling
+## Apllication and Tooling
 - Language: Python 3.12(Pillow for image processing)
 
 - Frontend: Static HTML, CSS, and JavaScript
@@ -29,22 +29,25 @@ The frontend UI is hosted as a static website in S3, deployed automatically usin
 
 - Build & Deployment Scripts: Bash (build_lambda.sh, deploy_frontend.sh)
 
-## Repo structure
+# Repo structure
 - `/app` - frontend /# index.html, styles.css, app.js (static website) +  Lambda backend code(lambda_function.py , requirements.txt)
 - `/infra` - Terraform files
 - `/scripts` - build_lambda.sh (Builds Lambda ZIP with Pillow + boto3) + deploy_frontend.sh (Deploys frontend to S3 website bucket)
 - `/docs` -  architecture diagram
 - `/project` - screenshots, final report
 
-## Quick start( Developer Setup)
+# Quick start( Developer Setup)
+
 1. Clone repo and create a feature branch.
 2. Edit `infra/variables.tf` to set unique bucket names.
 3. Build Lambda ZIP:
-   ```bash
+  ```bash
    chmod +x scripts/build_lambda.sh
    ./scripts/build_lambda.sh
+   
    ```
-  This script:
+  
+ This script:
 
 	Creates a Lambda-compatible build environment
 
@@ -52,7 +55,7 @@ The frontend UI is hosted as a static website in S3, deployed automatically usin
 
 	Generates lambda.zip and moves it into /infra
    
-4. Deploy Infrastructure:
+ 4. Deploy Infrastructure:
    ```  bash
    cd infra
    terraform init
@@ -61,7 +64,8 @@ The frontend UI is hosted as a static website in S3, deployed automatically usin
    terraform plan
    terraform apply
    ```
-  Terraform outputs:
+ 
+ Terraform outputs:
 
 	API Gateway invoke URL
 
@@ -69,9 +73,9 @@ The frontend UI is hosted as a static website in S3, deployed automatically usin
 
 	Bucket names
 
-Copy the API URL into the app/frontend/ app.js
+ Copy the API URL into the app/frontend/ app.js
 	
-## Deploy Frontend (Static Website Hosting)
+# Deploy Frontend (Static Website Hosting)
 
 Deploy via the script:
 ```bash
@@ -79,6 +83,7 @@ Deploy via the script:
 chmod +x scripts/deploy_frontend.sh
 ./scripts/deploy_frontend.sh
 	```
+
 This script:
 	Uploads index.html, styles.css, and app.js to the website bucket
 	Clears outdated files
@@ -86,7 +91,8 @@ This script:
 	Prints the public website URL
 The website becomes publicly reachable via the bucket website endpoint.
 
-## Monitoring & SLO Summary
+
+#Monitoring & SLO Summary
 
 Service Level Objective: 99% of resize requests complete within 2 seconds.
 
@@ -106,7 +112,7 @@ Alert if API Gateway 5XX spikes
 
 Track p95 latency for SLO compliance
 
-## AI Assistance Disclosure
+# AI Assistance Disclosure
 
 ChatGPT was used strictly for:
 
@@ -118,9 +124,9 @@ Improving clarity
 
 All code and functional decisions were validated and finalized by the team.
 
-## Team Responsibilities
+# Team Responsibilities
 
-# Josh (Backend & Infrastructure)
+## Josh (Backend & Infrastructure)
 
 Lambda function design & implementation
 
@@ -132,7 +138,7 @@ Backend testing + debugging
 
 Architecture & monitoring write-up
 
-# Adnan (Frontend & Documentation)
+## Adnan (Frontend & Documentation)
 
 UI/UX design
 
@@ -144,7 +150,7 @@ Writing Documentation
 
 Final polishing & presentation
 
-##Final Notes
+#Final Notes
 
 This project fulfills the MSIT3470 Cloud Computing final project requirements, demonstrating:
 
