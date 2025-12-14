@@ -78,11 +78,11 @@ The frontend UI is hosted as a static website in S3, deployed automatically usin
 # Deploy Frontend (Static Website Hosting)
 
 Deploy via the script:
-```bash
+```  bash
 
 chmod +x scripts/deploy_frontend.sh
 ./scripts/deploy_frontend.sh
-	```
+```
 
 This script:
 	Uploads index.html, styles.css, and app.js to the website bucket
