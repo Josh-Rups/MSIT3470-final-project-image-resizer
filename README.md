@@ -49,11 +49,11 @@ The frontend UI is hosted as a static website in S3, deployed automatically usin
   
  This script:
 
-Creates a Lambda-compatible build environment
+- Creates a Lambda-compatible build environment
 
-Installs Pillow + boto3
+- Installs Pillow + boto3
 
-Generates lambda.zip and moves it into /infra
+- Generates lambda.zip and moves it into /infra
    
  4. Deploy Infrastructure:
    ```  bash
@@ -67,15 +67,15 @@ Generates lambda.zip and moves it into /infra
  
  Terraform outputs:
 
-API Gateway invoke URL
+- API Gateway invoke URL
 
-Lambda name
+- Lambda name
 
-Bucket names
+- Bucket names
 
 Copy the API URL into the app/frontend/ app.js
 	
-# Deploy Frontend (Static Website Hosting)
+5. Deploy Frontend (Static Website Hosting)
 
 Deploy via the script:
 ```  bash
@@ -84,15 +84,15 @@ chmod +x scripts/deploy_frontend.sh
 ./scripts/deploy_frontend.sh
 ```
 
- This script:
+This script:
  
-Uploads index.html, styles.css, and app.js to the website bucket
+- Uploads index.html, styles.css, and app.js to the website bucket
 	
-Clears outdated files
+- Clears outdated files
 	
-Confirms deployment success
+- Confirms deployment success
 	
-Prints the public website URL
+- Prints the public website URL
 	
 The website becomes publicly reachable via the bucket website endpoint.
 
