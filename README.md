@@ -30,7 +30,7 @@ The frontend UI is hosted as a static website in S3, deployed automatically usin
 - Build & Deployment Scripts: Bash (build_lambda.sh, deploy_frontend.sh)
 
 # Repo structure
-- `/app` - frontend /# index.html, styles.css, app.js (static website) +  Lambda backend code(lambda_function.py , requirements.txt)
+- `/app` - frontend /(static website - index.html, styles.css, app.js ) +  Lambda backend code(lambda_function.py , requirements.txt)
 - `/infra` - Terraform files
 - `/scripts` - build_lambda.sh (Builds Lambda ZIP with Pillow + boto3) + deploy_frontend.sh (Deploys frontend to S3 website bucket)
 - `/docs` -  architecture diagram
@@ -103,6 +103,8 @@ Service Level Objective: 99% of resize requests complete within 2 seconds.
 
 Metrics observed via CloudWatch:
 
+- Lambda invocations
+
 - Lambda Duration
 
 - Lambda Errors
@@ -119,7 +121,7 @@ Design-level alerting recommendations:
 
 # AI Assistance Disclosure
 
-- ChatGPT was used strictly for:
+ChatGPT was used strictly for:
 
 - Debugging support
 
